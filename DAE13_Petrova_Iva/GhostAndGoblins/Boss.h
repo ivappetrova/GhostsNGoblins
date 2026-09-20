@@ -1,0 +1,91 @@
+#pragma once
+#include "Enemy.h"
+#include <vector>
+class Texture;
+class EnemyBullet;
+
+class Boss final: public Enemy
+{
+public: 
+	explicit Boss(const Vector2f& position, const float playerPosX, const std::vector<std::vector<Vector2f>>& levelVertices);
+	~Boss() noexcept;
+
+	virtual void Draw() const override;
+	virtual void Update(float elapsedSec, Player* player, UImanager* UI) override;
+	virtual void TakeDamage(int amount) override;
+
+	const Vector2f& GetPos() const noexcept;  
+
+	// Rule of 5
+	Boss(const Boss& theOneIcopy) = delete;
+	Boss(Boss&& theOneImove) = delete;
+	Boss& operator= (const Boss& theOneIcopy) = delete;
+	Boss& operator= (Boss&& theOneImove) = delete;
+
+private:
+	// draw
+	void FlipSprite() const noexcept;
+
+	//update
+	void UpdateDstRect();
+	void UpdateSrcRect() noexcept;
+	void UpdateDirection(const float playerPosX);
+	virtual void UpdateCollisionRect() override;
+	void HandleGroundCollision();
+	void ApplyGravity(float elapsedSec) noexcept;
+
+	void PickRandomAction();
+	void HandleRandomAction(float elapsedSec, Player* player);
+	void Move(float elapsedSec);
+	void Jump(float elapsedSec);
+	void Shoot(Player* player);
+
+
+	void OnDeath(UImanager* UI);
+	virtual void CheckPlayerCollision(Player* player) override;
+	void UpdateCurrentFrameNr() noexcept;
+	void UpdateBullets(float elapsedSec, Player* player);
+
+	// data members
+	Texture* m_pTexture;
+	float m_FrameWidth;
+	int m_CurrentFrameNr;
+	float m_AccTime;
+
+	const float m_SPEED;
+	float m_DirectionX;
+	float m_PlayerPosX;
+	float m_VelocityY;
+
+	Rectf m_DstRect;
+	Rectf m_SrcRect;
+
+	enum class State
+	{
+		idle, move = 1, jump = 2, shoot = 3, dead
+	};
+
+	State m_EnemyState;
+
+	int m_RandomNumberAction;
+
+	//bool states
+	bool m_IsFlipSprite;
+	bool m_HasShot;
+	bool m_HasJumped;
+	bool m_HasMoved;
+	bool m_IsOnGround;
+	bool m_IsActive;
+	bool m_IsDead;
+
+	void ResetStates();
+
+	bool m_NewActionNeeded;
+	const float m_ACTION_COOLDOWN;
+	float m_ActionTimer;
+
+
+	std::vector<EnemyBullet*> m_pBullets;
+	const std::vector<std::vector<Vector2f>> m_LevelVertices;
+};
+
