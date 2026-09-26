@@ -4,7 +4,7 @@
 
   <p align="center">   A C++ recreation of Capcom's Ghosts 'n Goblins, developed as part of my Game Development course at Howest DAE using SDL and the university's custom game engine.  </p>
 
-  <img src="Resources/gng.gif" alt="Gameplay" width="800">
+  <img src="gng.gif" alt="Gameplay" width="800">
 
   <br/>
   <br/>
@@ -42,13 +42,12 @@ For this project, I recreated the game's core gameplay and mechanics using C++, 
 - Moving platforms
 - Camera movement
 - Ladder climbing
-- Water hazards
+- Water areas that kill the player on contact
 - Boss fight
-- Key-based level progression
 
 ### Enemies
 
-Implemented 6 enemy types:
+Implemented 5 enemy types and a boss:
 
 - Zombie
 - Plant Shooter
@@ -70,67 +69,31 @@ Implemented 6 enemy types:
 - Score counter
 - Timer
 
- <br/>
+<br/>
 
 <!-- TECHNICAL HIGHLIGHTS -->
 ## Technical Highlights
 
 ### Object Composition
 
-Used object composition to manage projectile behaviour.
+Used object composition to manage projectiles independently from the entities that create them.
 
-The player, plants, devils, and boss dynamically create and manage their respective projectile objects. 
+The Player, Plant, Devil, and Boss dynamically create and manage their respective projectile objects. 
 Projectiles handle their own updates and collision behaviour before being removed when their lifetime ends or they collide with an object.
 
 ### Inheritance
 
-Implemented inheritance for enemies and collectables using base
-classes:
+Implemented inheritance for enemies and collectables using base classes:
 
-**Enemy**
-- Zombie
-- Bird
-- Plant
-- Shield Bearer
-- Devil
-- Boss
-
-**Collectable**
-- BallCollectable
-- CoinCollectable
-- MoneyBag
-- KeyCollectable
-- EnemyCollectable
+- `Enemy` → Zombie, Bird, Plant, Shield Bearer, Devil, Boss
+- `Collectable` → BallCollectable, CoinCollectable, MoneyBag, KeyCollectable, EnemyCollectable
 
 ### Enemy Drop System
 
-Enemies have a chance to drop a collectable when defeated. The resulting collectable is determined through an additional randomized selection system.
+Enemies have a chance to drop a collectable when defeated. 
+The resulting collectable is determined through an additional randomized selection system.
 
-### Boss Level Interaction
-
-The boss requires access to level geometry for collision handling. 
-Because the base `Enemy` class does not require level vertices, the relevant level data is provided to the boss during construction rather than modifying the shared `Enemy::Update()` interface.
-
- <br/>
-
-<!-- MY CONTRIBUTION -->
-## My Contribution
-
-I implemented the gameplay systems and mechanics for the project, including:
-
-- Player movement and animations
-- Camera movement
-- Enemy behaviour
-- Projectile systems
-- Collision handling
-- Moving platforms
-- Ladder mechanics
-- Collectables and randomized enemy drops
-- Boss fight
-- Level progression
-- Score and timer UI
-
- <br/>
+<br/>
 
 <!-- CONTROLS -->
 ## Controls
@@ -168,12 +131,11 @@ I implemented the gameplay systems and mechanics for the project, including:
 
  <br/>
 
-<!-- WHAT I LEARNED -->
-## What I Learned
+<!-- KEY TAKEAWAYS -->
+## Key Takeaways
 
 This project gave me experience working with an existing game-engine architecture and implementing gameplay systems in C++. 
 In particular, I gained experience with object-oriented design, inheritance, composition, collision handling, entity management, and integrating multiple gameplay systems into a complete playable level.	
-I gained experience with object-oriented design, inheritance, composition, collision handling, entity management, and integrating multiple gameplay systems into a complete playable level.
 
  <br/>
 
