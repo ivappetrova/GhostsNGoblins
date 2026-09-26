@@ -27,7 +27,7 @@ For this project, I recreated the game's core gameplay and mechanics using C++, 
 
 - C++
 - SDL
-- X Custom Game Engine
+- HOWEST DAE Custom Game Engine
 - Visual Studio 2022
 - Git
 
