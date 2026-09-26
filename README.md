@@ -6,7 +6,7 @@
 
  <br />
 
-   <img src="images_&_spritesheets/gameplay.gif" alt="Gameplay" width="800">
+   <img src="images_&_spritesheets/gng.gif" alt="Gameplay" width="800">
 
    <a href="https://www.youtube.com/watch?v=4ZxlZoO_EGk"> <strong> Watch the full gameplay video »</strong>  </a>
 
