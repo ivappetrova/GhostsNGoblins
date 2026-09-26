@@ -4,7 +4,7 @@
 
   <p align="center">   A C++ recreation of Capcom's Ghosts 'n Goblins, developed as part of my Game Development course at Howest DAE using SDL and the university's custom game engine.  </p>
 
-  <img src="images_&_spritesheets/gng.gif" alt="Gameplay" width="800">
+  <img src="Resources/gng.gif" alt="Gameplay" width="800">
 
   <br/>
   <br/>
