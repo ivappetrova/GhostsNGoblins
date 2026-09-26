@@ -105,7 +105,7 @@ The resulting collectable is determined through an additional randomized selecti
 | Climb Up | W |
 | Crouch / Climb Down | S |
 | Jump | Space |
-| Shoot | E |
+| Shoot | P |
 
  <br/>
 
