@@ -1,1 +1,0 @@
-Keep all your original spritesheets and resources in here. The polished ones can then be placed / used in the Resources folder of your game project.

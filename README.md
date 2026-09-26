@@ -4,11 +4,11 @@
 
   <p align="center">   A C++ recreation of Capcom's Ghosts 'n Goblins, developed as part of my Game Development course at Howest DAE using SDL and the university's custom game engine.  </p>
 
- <br />
+  <img src="images_&_spritesheets/gng.gif" alt="Gameplay" width="800">
 
-   <img src="images_&_spritesheets/gng.gif" alt="Gameplay" width="800">
+  <br/>
 
-   <a href="https://www.youtube.com/watch?v=4ZxlZoO_EGk"> <strong> Watch the full gameplay video »</strong>  </a>
+  <a href="https://youtu.be/8V2gZA79Yl0"> <strong> Watch the full gameplay video »</strong>  </a>
 
 </div>
 
@@ -19,6 +19,8 @@ Ghosts 'n Goblins is a run-and-gun platform game developed by Capcom, where the 
 
 For this project, I recreated the game's core gameplay and mechanics using C++, SDL, and Howest DAE's custom game engine.
 
+ <br/>
+
 <!-- TECHNOLOGIES -->
 ## Technologies
 
@@ -27,6 +29,8 @@ For this project, I recreated the game's core gameplay and mechanics using C++, 
 - X Custom Game Engine
 - Visual Studio 2022
 - Git
+
+ <br/>
 
 <!-- FEATURES -->
 ## Features
@@ -64,6 +68,8 @@ Implemented 6 enemy types:
 
 - Score counter
 - Timer
+
+ <br/>
 
 <!-- TECHNICAL HIGHLIGHTS -->
 ## Technical Highlights
@@ -104,6 +110,8 @@ Enemies have a chance to drop a collectable when defeated. The resulting collect
 The boss requires access to level geometry for collision handling. 
 Because the base `Enemy` class does not require level vertices, the relevant level data is provided to the boss during construction rather than modifying the shared `Enemy::Update()` interface.
 
+ <br/>
+
 <!-- MY CONTRIBUTION -->
 ## My Contribution
 
@@ -121,6 +129,8 @@ I implemented the gameplay systems and mechanics for the project, including:
 - Level progression
 - Score and timer UI
 
+ <br/>
+
 <!-- CONTROLS -->
 ## Controls
 
@@ -132,6 +142,8 @@ I implemented the gameplay systems and mechanics for the project, including:
 | Crouch / Climb Down | S |
 | Jump | Space |
 | Shoot | E |
+
+ <br/>
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -153,6 +165,8 @@ I implemented the gameplay systems and mechanics for the project, including:
 2. Open the appropriate configuration folder.
 3. Run `GhostsAndGoblins.exe`.
 
+ <br/>
+
 <!-- WHAT I LEARNED -->
 ## What I Learned
 
@@ -160,19 +174,20 @@ This project gave me experience working with an existing game-engine architectur
 In particular, I gained experience with object-oriented design, inheritance, composition, collision handling, entity management, and integrating multiple gameplay systems into a complete playable level.	
 I gained experience with object-oriented design, inheritance, composition, collision handling, entity management, and integrating multiple gameplay systems into a complete playable level.
 
+ <br/>
+
+
+<!-- CREDITS -->
+## Credits
+
+* [cppreference](https://en.cppreference.com/)
+* [Website game used for reference](https://online.oldgames.sk/play/arcade/ghosts-n-goblins/10197)
+* [Video used for reference](https://www.youtube.com/watch?v=P1VwMYwp80w)
+
+ <br/>
 
 <!-- CONTACT -->
 ## Contact
 
 Email: ivaxppetrova@gmail.com
 Linkedin: [https://www.linkedin.com/in/ivappetrova/](https://www.linkedin.com/in/ivappetrova/)
-
-
-<!-- CREDITS -->
-## Acknowledgments
-
-* [cppreference](https://en.cppreference.com/w/cpp/container/vector)
-* [Website game used for reference](https://online.oldgames.sk/play/arcade/ghosts-n-goblins/10197)
-* [Video used for reference](https://www.youtube.com/watch?v=P1VwMYwp80w)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
