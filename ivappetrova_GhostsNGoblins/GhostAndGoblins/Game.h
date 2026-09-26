@@ -8,7 +8,7 @@ class SoundStream;
 //my classes
 class Player;
 class Camera;
-class UImanager;
+class HUDmanager;
 class Timer;
 class EnemyManager;
 class Platform;
@@ -47,7 +47,7 @@ private:
 	Player* m_pPlayer;
 	Camera* m_pCamera;
 	Timer* m_pTimer;
-	UImanager* m_pScoreUI;
+	HUDmanager* m_pScoreUI;
 
 	// Enemies
 	EnemyManager* m_pEnemyManager;

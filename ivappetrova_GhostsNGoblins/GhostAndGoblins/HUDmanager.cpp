@@ -1,13 +1,13 @@
 #include "pch.h"
-#include "UImanager.h"
+#include "HUDmanager.h"
 #include <iostream>
 #include "Texture.h"
 #include "Timer.h"
 
-UImanager::UImanager(Timer* timer):
+HUDmanager::HUDmanager(Timer* timer):
 	m_CurrentScore{0},
 	m_TopScore{10000},
-	m_FONT_PATH{"UI/GhostsNGoblinsFont.ttf"},
+	m_FONT_PATH{"HUD/GhostsNGoblinsFont.ttf"},
 	m_WonTheGame{false},
 	m_TakeTheKey{false}
 {
@@ -33,7 +33,7 @@ UImanager::UImanager(Timer* timer):
 
 }
 
-UImanager::~UImanager() noexcept
+HUDmanager::~HUDmanager() noexcept
 {
 	delete m_pPlayer1Text;
 	delete m_pPlayer1Score;
@@ -49,7 +49,7 @@ UImanager::~UImanager() noexcept
 	delete m_pResetText;
 }
 
-void UImanager::AddPoints(int points) noexcept
+void HUDmanager::AddPoints(int points) noexcept
 {
 	m_CurrentScore += points;
 	delete m_pPlayer1Score;
@@ -64,28 +64,28 @@ void UImanager::AddPoints(int points) noexcept
 	}
 }
 
-int UImanager::GetScore() const noexcept
+int HUDmanager::GetScore() const noexcept
 {
 	return m_CurrentScore;
 }
 
-void UImanager::TakeKey() noexcept
+void HUDmanager::TakeKey() noexcept
 {
 	m_TakeTheKey = true;
 }
 
-void UImanager::SetVictory() noexcept
+void HUDmanager::SetVictory() noexcept
 {
 	m_WonTheGame = true;
 	m_TakeTheKey = false;
 }
 
-int UImanager::GetHighScore() const noexcept
+int HUDmanager::GetHighScore() const noexcept
 {
 	return m_TopScore;
 }
 
-void UImanager::DrawUI(const Vector2f& playerPos, float windowWidth, float levelWidth, bool isPlayerDead, bool timeEnded) const
+void HUDmanager::DrawUI(const Vector2f& playerPos, float windowWidth, float levelWidth, bool isPlayerDead, bool timeEnded) const
 {
 	float playerX{ };
 	if (playerPos.x < windowWidth/2 - 40.f)
@@ -128,7 +128,7 @@ void UImanager::DrawUI(const Vector2f& playerPos, float windowWidth, float level
 	}
 }
 
-void UImanager::UpdateTimerUI(float elapsedSec, Timer* timer, bool isPlayerDead)
+void HUDmanager::UpdateTimerUI(float elapsedSec, Timer* timer, bool isPlayerDead)
 {
 	if (!isPlayerDead)
 	{

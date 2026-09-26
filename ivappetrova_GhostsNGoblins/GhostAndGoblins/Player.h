@@ -4,7 +4,7 @@
 class Texture;
 class SoundEffect;
 
-class UImanager;
+class HUDmanager;
 class Health;
 class Water;
 class Platform;
@@ -22,7 +22,7 @@ public:
 	void Update(float elapsedSec, const Uint8* pStates, const std::vector<std::vector<Vector2f>>& levelVertices,
 				const std::vector<std::vector<Vector2f>>& ladderVertices, const Platform* platform, 
 				const std::vector<Water*>& waters, std::vector<Collectable*>& collectables,
-				std::vector<Enemy*>& enemies, UImanager* UI, bool timeEnded);
+				std::vector<Enemy*>& enemies, HUDmanager* HUD, bool timeEnded);
 	void TakeDmg(int amount) noexcept;
 
 	// getters
@@ -55,10 +55,10 @@ private:
 	void HandleCollision(float elapsedSec, const std::vector<std::vector<Vector2f>>& levelVertices,
 						const std::vector<std::vector<Vector2f>>& ladderVertices, const Platform* platform,
 						const std::vector<Water*>& waters, std::vector<Collectable*>& collectables, 
-						std::vector<Enemy*>& enemies, UImanager* UI);
+						std::vector<Enemy*>& enemies, HUDmanager* HUD);
 	void CheckLifeTimeBullets(float elapsedSec, const std::vector< std::vector<Vector2f> >& levelVertices,
 						      std::vector<Enemy*>& enemies);
-	void CheckCollectablesCollision(std::vector<Collectable*>& collectables, UImanager* UI);
+	void CheckCollectablesCollision(std::vector<Collectable*>& collectables, HUDmanager* HUD);
 	void CheckWaterCollision(const std::vector<Water*>& waters);
 	void ApplyGravity(float elapsedSec) noexcept;
 	void ResetStatesEveryElapsedSec() noexcept;

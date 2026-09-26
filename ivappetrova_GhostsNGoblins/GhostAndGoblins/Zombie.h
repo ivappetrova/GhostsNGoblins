@@ -2,7 +2,7 @@
 #include "Enemy.h"
 class Texture;
 class Player;
-class UImanager;
+class HUDmanager;
 
 class Zombie final: public Enemy
 {
@@ -11,7 +11,7 @@ public:
 	virtual ~Zombie() noexcept;
 
 	virtual void Draw() const override;
-	virtual void Update(float elapsedSec, Player* player, UImanager* UI) override;
+	virtual void Update(float elapsedSec, Player* player, HUDmanager* HUD) override;
 	virtual void TakeDamage(int amount) override;
 
 	bool WentDown() const noexcept;
@@ -33,7 +33,7 @@ private:
 	void SetDirection(const float playerPosXInEnemyInitTime);
 
 	// deletes the old enemy texture to load the flame death effect
-	void OnDeath(UImanager* UI);
+	void OnDeath(HUDmanager* HUD);
 
 	// draw
 	void FlipSprite() const noexcept;

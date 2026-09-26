@@ -2,7 +2,7 @@
 class SoundEffect;
 
 class Health;
-class UImanager;
+class HUDmanager;
 class Player;
 class Collectable;
 
@@ -13,7 +13,7 @@ public:
 	virtual ~Enemy() noexcept;
 
 	virtual void Draw() const = 0;
-	virtual void Update(float elapsedSec, Player* player, UImanager* UI);
+	virtual void Update(float elapsedSec, Player* player, HUDmanager* HUD);
 
 	// to delete the object when the animation is done
 	virtual const bool IsDead() const noexcept;

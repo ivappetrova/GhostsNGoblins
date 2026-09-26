@@ -4,7 +4,7 @@
 
 class Texture;
 class Player;
-class UImanager;
+class HUDmanager;
 class EnemyBullet;
 
 class Plant final : public Enemy
@@ -14,7 +14,7 @@ public:
 	virtual ~Plant() noexcept;
 
 	virtual void Draw() const override;
-	virtual void Update(float elapsedSec, Player* player, UImanager* UI) override;
+	virtual void Update(float elapsedSec, Player* player, HUDmanager* HUD) override;
 	virtual void TakeDamage(int amount) override;
 
 	// Rule of 5
@@ -34,7 +34,7 @@ private:
 	void UpdateDirection(const float playerPosXInEnemyInitTime);
 
 	// deletes the old enemy texture to load the flame death effect
-	void OnDeath(UImanager* UI);
+	void OnDeath(HUDmanager* HUD);
 
 	// draw
 	void FlipSprite() const noexcept;

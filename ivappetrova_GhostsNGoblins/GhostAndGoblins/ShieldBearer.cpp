@@ -5,7 +5,7 @@
 #include "Player.h"
 #include "Health.h"
 #include <iostream>
-#include "UImanager.h"
+#include "HUDmanager.h"
 #include "Enemy.h"
 #include "SoundEffect.h"
 
@@ -46,9 +46,9 @@ void ShieldBearer::Draw() const
 	utils::DrawRect(Enemy::GetCollisionRect());*/
 }
 
-void ShieldBearer::Update(float elapsedSec, Player* player, UImanager* UI)
+void ShieldBearer::Update(float elapsedSec, Player* player, HUDmanager* HUD)
 {
-	Enemy::Update(elapsedSec, player, UI);
+	Enemy::Update(elapsedSec, player, HUD);
 
 	m_AccTime += elapsedSec;
 	m_pMoveEffect->SetVolume(1);
@@ -74,7 +74,7 @@ void ShieldBearer::Update(float elapsedSec, Player* player, UImanager* UI)
 
 	if (m_pHp->IsDead() && !m_HasHandledDeath)
 	{
-		OnDeath(UI);
+		OnDeath(HUD);
 		m_HasHandledDeath = true;
 	}
 
@@ -159,9 +159,9 @@ void ShieldBearer::CheckPlayerCollision(Player* player)
 	}
 }
 
-void ShieldBearer::OnDeath(UImanager* UI)
+void ShieldBearer::OnDeath(HUDmanager* HUD)
 {
-	UI->AddPoints(m_Points);
+	HUD->AddPoints(m_Points);
 	m_IsAbleToMove = false;
 	m_CurrentFrameNr = 0;
 

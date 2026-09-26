@@ -181,7 +181,7 @@ xcopy "$(SolutionDir)Resources\*.*" "$(TargetDir)" /y /d /s</Command>
     <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="ShieldBearer.cpp" />
     <ClCompile Include="Timer.cpp" />
-    <ClCompile Include="UImanager.cpp" />
+    <ClCompile Include="HUDmanager.cpp" />
     <ClCompile Include="Water.cpp" />
     <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
@@ -209,7 +209,7 @@ xcopy "$(SolutionDir)Resources\*.*" "$(TargetDir)" /y /d /s</Command>
     <ClInclude Include="PlayerBullet.h" />
     <ClInclude Include="ShieldBearer.h" />
     <ClInclude Include="Timer.h" />
-    <ClInclude Include="UImanager.h" />
+    <ClInclude Include="HUDmanager.h" />
     <ClInclude Include="Water.h" />
     <ClInclude Include="Zombie.h" />
   </ItemGroup>

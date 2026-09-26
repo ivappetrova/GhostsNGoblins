@@ -12,7 +12,7 @@
 #include "ShieldBearer.h"
 #include "Boss.h"
 #include "Player.h"
-#include "UImanager.h"
+#include "HUDmanager.h"
 #include "KeyCollectable.h"
 
 EnemyManager::EnemyManager(const Vector2f& playerPos, const std::vector<std::vector<Vector2f>>& levelVertices)
@@ -71,7 +71,7 @@ void EnemyManager::Draw() const
 	}
 }
 
-void EnemyManager::Update(float elapsedSec, const float windowWidth, Player* player, UImanager* UI, std::vector<Collectable*>& collectablesVector, Door* door)
+void EnemyManager::Update(float elapsedSec, const float windowWidth, Player* player, HUDmanager* HUD, std::vector<Collectable*>& collectablesVector, Door* door)
 {
 	m_SpawnTimer += elapsedSec;
 
@@ -85,7 +85,7 @@ void EnemyManager::Update(float elapsedSec, const float windowWidth, Player* pla
 		}
 
 		//update if not nullptr
-		m_pEnemies[index]->Update(elapsedSec, player, UI);
+		m_pEnemies[index]->Update(elapsedSec, player, HUD);
 
 		// check if dead and should delete
 		bool shouldDelete = false;
@@ -108,7 +108,7 @@ void EnemyManager::Update(float elapsedSec, const float windowWidth, Player* pla
 			if (Boss* boss = dynamic_cast<Boss*>(m_pEnemies[index]))
 			{
 				collectablesVector.push_back(new KeyCollectable(door));
-				UI->TakeKey();
+				HUD->TakeKey();
 				m_pWinMusic->Play(false);
 			}
 			else

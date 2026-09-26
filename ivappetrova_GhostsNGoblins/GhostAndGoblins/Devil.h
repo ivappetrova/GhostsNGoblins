@@ -11,7 +11,7 @@ public:
 	~Devil() noexcept;
 
 	virtual void Draw() const override;
-	virtual void Update(float elapsedSec, Player* player, UImanager* UI) override;
+	virtual void Update(float elapsedSec, Player* player, HUDmanager* HUD) override;
 	virtual void TakeDamage(int amount) override;
 
 	const Vector2f& GetPos() const noexcept;
@@ -42,7 +42,7 @@ private:
 	void Shoot(Player* player);
 
 
-	void OnDeath(UImanager* UI);
+	void OnDeath(HUDmanager* HUD);
 	virtual void CheckPlayerCollision(Player* player) override;
 	void UpdateCurrentFrameNr() noexcept;
 	void UpdateBullets(float elapsedSec, Player* player);

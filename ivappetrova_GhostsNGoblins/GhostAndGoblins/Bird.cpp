@@ -6,7 +6,7 @@
 #include "Player.h"
 #include "Health.h"
 #include <iostream>
-#include "UImanager.h"
+#include "HUDmanager.h"
 #include "Enemy.h"
 
 Bird::Bird(const Vector2f& position):
@@ -39,9 +39,9 @@ void Bird::Draw() const
 	utils::DrawRect(Enemy::GetCollisionRect());*/
 }
 
-void Bird::Update(float elapsedSec, Player* player, UImanager* UI)
+void Bird::Update(float elapsedSec, Player* player, HUDmanager* HUD)
 {
-	Enemy::Update(elapsedSec, player, UI);
+	Enemy::Update(elapsedSec, player, HUD);
 
 	m_AccTime += elapsedSec;
 
@@ -60,7 +60,7 @@ void Bird::Update(float elapsedSec, Player* player, UImanager* UI)
 
 	if ((m_pHp->IsDead() || m_EnemyState == State::dead) && !m_HasHandledDeath)
 	{
-		OnDeath(UI);
+		OnDeath(HUD);
 		m_HasHandledDeath = true;
 	}
 
@@ -115,9 +115,9 @@ void Bird::CheckPlayerCollision(Player* player)
 	}
 }
 
-void Bird::OnDeath(UImanager* UI)
+void Bird::OnDeath(HUDmanager* HUD)
 {
-	UI->AddPoints(m_Points);
+	HUD->AddPoints(m_Points);
 	m_IsAbleToFly = false;
 	m_CurrentFrameNr = 0;
 

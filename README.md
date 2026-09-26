@@ -54,7 +54,7 @@ Implemented 5 enemy types and a boss:
 - Bird
 - Shield Bearer
 - Devil
-- Boss
+- Unicorn Boss
 
 ### Collectables
 
@@ -64,7 +64,7 @@ Implemented 5 enemy types and a boss:
 - Enemy drop system with randomized rewards
 - Key collectible for completing the level
 
-### UI
+### HUD
 
 - Score counter
 - Timer

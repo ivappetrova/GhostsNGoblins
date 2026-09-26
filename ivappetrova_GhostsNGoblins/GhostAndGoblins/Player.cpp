@@ -4,7 +4,7 @@
 #include <iostream>
 #include "utils.h"
 
-#include "UImanager.h"
+#include "HUDmanager.h"
 #include "Health.h"
 #include "Platform.h"
 #include "Water.h"
@@ -138,7 +138,7 @@ const Rectf Player::GetCurrFrameRect() const noexcept
 void Player::Update(float elapsedSec, const Uint8* pStates, const std::vector<std::vector<Vector2f>>& levelVertices,
 					const std::vector<std::vector<Vector2f>>& ladderVertices, const Platform* platform,
 					const std::vector<Water*>& waters, std::vector<Collectable*>& collectables, 
-					std::vector<Enemy*>& enemies, UImanager* UI, bool timeEnded)
+					std::vector<Enemy*>& enemies, HUDmanager* HUD, bool timeEnded)
 {
 	m_AccTime += elapsedSec;
 	m_pCollectablePickedUp->SetVolume(20);
@@ -148,7 +148,7 @@ void Player::Update(float elapsedSec, const Uint8* pStates, const std::vector<st
 	{
 		UpdateCollisionRect();
 
-		HandleCollision(elapsedSec, levelVertices, ladderVertices, platform, waters, collectables, enemies, UI);
+		HandleCollision(elapsedSec, levelVertices, ladderVertices, platform, waters, collectables, enemies, HUD);
 
 		ApplyGravity(elapsedSec);
 
@@ -198,7 +198,7 @@ void Player::UpdateCollisionRect() noexcept
 void Player::HandleCollision(float elapsedSec, const std::vector<std::vector<Vector2f>>& levelVertices,
 							 const std::vector<std::vector<Vector2f>>& ladderVertices, const Platform* platform,
 							 const std::vector<Water*>& waters, std::vector<Collectable*>& collectables,
-							 std::vector<Enemy*>& enemies, UImanager* UI)
+							 std::vector<Enemy*>& enemies, HUDmanager* HUD)
 {
 	utils::HitInfo hitinfo{};
 	m_IsOnGround = false;
@@ -358,7 +358,7 @@ void Player::HandleCollision(float elapsedSec, const std::vector<std::vector<Vec
 
 	CheckLifeTimeBullets(elapsedSec, levelVertices, enemies);
 
-	CheckCollectablesCollision(collectables, UI);
+	CheckCollectablesCollision(collectables, HUD);
 
 	CheckWaterCollision(waters);
 
@@ -385,7 +385,7 @@ void Player::CheckLifeTimeBullets(float elapsedSec, const std::vector< std::vect
 	}
 }
 
-void Player::CheckCollectablesCollision(std::vector<Collectable*>& collectables, UImanager* UI)
+void Player::CheckCollectablesCollision(std::vector<Collectable*>& collectables, HUDmanager* HUD)
 {
 	for (int index{}; index < collectables.size(); ++index)
 	{
@@ -393,13 +393,13 @@ void Player::CheckCollectablesCollision(std::vector<Collectable*>& collectables,
 
 		if (utils::IsOverlapping(pCollectable->GetCollisionRect(), m_CollisionRect))
 		{
-			UI->AddPoints(pCollectable->GetPoints());
+			HUD->AddPoints(pCollectable->GetPoints());
 			m_pCollectablePickedUp->Play(0);
 
 			if (KeyCollectable* key = dynamic_cast<KeyCollectable*>(pCollectable))
 			{
 				key->OpenDoor();
-				UI->SetVictory();
+				HUD->SetVictory();
 				m_DoorIsOpen = true;
 			}
 

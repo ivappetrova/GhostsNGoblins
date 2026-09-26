@@ -6,7 +6,7 @@
 #include <iostream>
 #include "Player.h"
 #include "Health.h"
-#include "UImanager.h"
+#include "HUDmanager.h"
 #include "EnemyBullet.h"
 
 Plant::Plant(const Vector2f& position, const Vector2f& playerPos) :
@@ -104,9 +104,9 @@ void Plant::FlipSprite() const noexcept
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void Plant::Update(float elapsedSec, Player* player, UImanager* UI)
+void Plant::Update(float elapsedSec, Player* player, HUDmanager* HUD)
 {
-	Enemy::Update(elapsedSec, player, UI);
+	Enemy::Update(elapsedSec, player, HUD);
 
 	m_AccTime += elapsedSec;
 
@@ -124,7 +124,7 @@ void Plant::Update(float elapsedSec, Player* player, UImanager* UI)
 
 	if (m_pHp->IsDead() && !m_HasHandledDeath)
 	{
-		OnDeath(UI);
+		OnDeath(HUD);
 		m_HasHandledDeath = true;
 		m_IsAbleToShoot = false;
 	}
@@ -171,9 +171,9 @@ void Plant::CheckFlipSprite() noexcept
 	}
 }
 
-void Plant::OnDeath(UImanager* UI)
+void Plant::OnDeath(HUDmanager* HUD)
 {
-	UI->AddPoints(m_Points);
+	HUD->AddPoints(m_Points);
 	
 	m_CurrentFrameNr = 0;
 	m_pDeathEffect->Play(0);

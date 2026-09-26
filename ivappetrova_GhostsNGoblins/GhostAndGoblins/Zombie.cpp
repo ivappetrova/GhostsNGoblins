@@ -5,7 +5,7 @@
 #include "utils.h"
 #include "Player.h"
 #include "Health.h"
-#include "UImanager.h"
+#include "HUDmanager.h"
 #include "SoundEffect.h"
 
 Zombie::Zombie(const Vector2f& spawnLocation, const float playerPosXInEnemyInitTime) :
@@ -89,9 +89,9 @@ void Zombie::FlipSprite() const noexcept
 	glTranslatef(-(m_Position.x + m_FRAME_WIDTH * 2 / 2.0f), -m_Position.y, 0);
 }
 
-void Zombie::Update(float elapsedSec, Player* player, UImanager* UI)
+void Zombie::Update(float elapsedSec, Player* player, HUDmanager* HUD)
 {
-	Enemy::Update(elapsedSec, player, UI);
+	Enemy::Update(elapsedSec, player, HUD);
 
 	m_AccTime += elapsedSec;
 
@@ -114,7 +114,7 @@ void Zombie::Update(float elapsedSec, Player* player, UImanager* UI)
 
 	if (m_EnemyState == State::dead && !m_HasHandledDeath)
 	{
-		OnDeath(UI);
+		OnDeath(HUD);
 		m_HasHandledDeath = true;
 	}
 	// adds the pts more than once
@@ -184,10 +184,10 @@ void Zombie::CheckPlayerCollision(Player* player)
 	}
 }
 
-void Zombie::OnDeath(UImanager* UI)
+void Zombie::OnDeath(HUDmanager* HUD)
 {
 	m_IsAbleToMove = false;
-	UI->AddPoints(m_Points); 
+	HUD->AddPoints(m_Points); 
 	m_CurrentFrameNr = 0;
 
 	m_pDeathEffect->Play(0);

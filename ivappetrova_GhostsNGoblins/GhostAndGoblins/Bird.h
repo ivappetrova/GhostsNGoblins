@@ -4,7 +4,7 @@
 class Texture;
 
 class Player;
-class UImanager;
+class HUDmanager;
 
 class Bird final : public Enemy
 {
@@ -13,7 +13,7 @@ public:
 	virtual ~Bird() noexcept;
 
 	virtual void Draw() const override;
-	virtual void Update(float elapsedSec, Player* player, UImanager* UI) override;
+	virtual void Update(float elapsedSec, Player* player, HUDmanager* HUD) override;
 	virtual void TakeDamage(int amount) override;
 
 	// Rule of 5
@@ -32,7 +32,7 @@ private:
 	void UpdateDstRect() noexcept;
 	void CheckIfAbleToMove(const float playerX);
 	void Fly(float elapsedSec) noexcept;
-	void OnDeath(UImanager* UI);
+	void OnDeath(HUDmanager* HUD);
 	void UpdateCurrentFrameNr() noexcept; 
 	void UpdateSrcRect() noexcept;
 

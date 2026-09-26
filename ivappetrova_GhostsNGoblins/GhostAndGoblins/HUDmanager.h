@@ -2,11 +2,11 @@
 class Texture;
 class Timer;
 
-class UImanager final
+class HUDmanager final
 {
 public:
-	explicit UImanager(Timer* timer);
-	~UImanager() noexcept;
+	explicit HUDmanager(Timer* timer);
+	~HUDmanager() noexcept;
 
 	void AddPoints(int points) noexcept;
 	int GetScore() const noexcept;
@@ -18,10 +18,10 @@ public:
 	void UpdateTimerUI(float elapsedSec, Timer* timer, bool isPlayerDead);
 
 	// Rule of 5
-	UImanager(const UImanager& theOneIcopy) = delete;
-	UImanager(UImanager&& theOneImove) = delete;
-	UImanager& operator= (const UImanager& theOneIcopy) = delete;
-	UImanager& operator= (UImanager&& theOneImove) = delete;
+	HUDmanager(const HUDmanager& theOneIcopy) = delete;
+	HUDmanager(HUDmanager&& theOneImove) = delete;
+	HUDmanager& operator= (const HUDmanager& theOneIcopy) = delete;
+	HUDmanager& operator= (HUDmanager&& theOneImove) = delete;
 
 private:
 	// functions

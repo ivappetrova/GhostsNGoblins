@@ -1,5 +1,5 @@
 #pragma once
-class UImanager;
+class HUDmanager;
 
 class Timer final
 {

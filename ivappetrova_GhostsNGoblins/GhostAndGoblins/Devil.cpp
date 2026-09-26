@@ -6,7 +6,7 @@
 #include "SoundEffect.h"
 
 #include "Player.h"
-#include "UImanager.h"
+#include "HUDmanager.h"
 #include "Health.h"
 #include "EnemyBullet.h"
 
@@ -100,9 +100,9 @@ void Devil::FlipSprite() const noexcept
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void Devil::Update(float elapsedSec, Player* player, UImanager* UI)
+void Devil::Update(float elapsedSec, Player* player, HUDmanager* HUD)
 {
-	Enemy::Update(elapsedSec, player, UI);
+	Enemy::Update(elapsedSec, player, HUD);
 
 	if (player->GetPosition().x > this->m_Position.x -290.f && !m_IsActive)
 	{
@@ -167,7 +167,7 @@ void Devil::Update(float elapsedSec, Player* player, UImanager* UI)
 
 		if (m_pHp->IsDead() && !m_HasHandledDeath)
 		{
-			OnDeath(UI);
+			OnDeath(HUD);
 			m_HasHandledDeath = true;
 			m_NewActionNeeded = false;
 
@@ -397,12 +397,12 @@ void Devil::ResetStates()
 	m_HasMoved = false;
 }
 
-void Devil::OnDeath(UImanager* UI)
+void Devil::OnDeath(HUDmanager* HUD)
 {
 	if (m_IsDead) return;
 	m_IsDead = true;
 
-	UI->AddPoints(m_Points);
+	HUD->AddPoints(m_Points);
 
 	m_EnemyState = State::dead;
 	m_CurrentFrameNr = 0;

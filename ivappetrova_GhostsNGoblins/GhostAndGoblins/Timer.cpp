@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Timer.h"
 #include <iostream>
-#include "UImanager.h"
+#include "HUDmanager.h"
 
 Timer::Timer(int mins, int seconds):
 	m_Seconds{mins * 60 + seconds},

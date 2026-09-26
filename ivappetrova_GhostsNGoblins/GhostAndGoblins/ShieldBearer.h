@@ -5,7 +5,7 @@ class Texture;
 class SoundEffect;
 
 class Player;
-class UImanager;
+class HUDmanager;
 
 class ShieldBearer final : public Enemy
 {
@@ -14,7 +14,7 @@ public:
 	virtual ~ShieldBearer() noexcept;
 
 	virtual void Draw() const override;
-	virtual void Update(float elapsedSec, Player* player, UImanager* UI) override;
+	virtual void Update(float elapsedSec, Player* player, HUDmanager* HUD) override;
 	const Rectf GetShieldRect() const noexcept;
 
 	// Rule of 5
@@ -32,7 +32,7 @@ private:
 	//update
 	void CheckIfAbleToMove(const float playerX);
 	void Move(float elapsedSec) noexcept;
-	void OnDeath(UImanager* UI);
+	void OnDeath(HUDmanager* HUD);
 	void UpdateCurrentFrameNr() noexcept;
 	void UpdateSrcRect() noexcept;
 	void UpdateShieldRect() noexcept;

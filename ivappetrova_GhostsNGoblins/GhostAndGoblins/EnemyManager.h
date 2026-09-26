@@ -5,7 +5,7 @@ class SoundStream;
 
 class Enemy;
 class Player;
-class UImanager;
+class HUDmanager;
 class Boss;
 class Door;
 class Collectable;
@@ -16,7 +16,7 @@ public:
 	explicit EnemyManager(const Vector2f& playerPos, const std::vector<std::vector<Vector2f>>& levelVertices);
 	~EnemyManager() noexcept;
 
-	void Update(float elapsedSec, const float windowWidth, Player* player, UImanager* UI, std::vector<Collectable*>& collectablesVector, Door* door);
+	void Update(float elapsedSec, const float windowWidth, Player* player, HUDmanager* HUD, std::vector<Collectable*>& collectablesVector, Door* door);
 	void Draw() const;
 	void SpawnZombie(const Vector2f& position, const Vector2f& playerPos);
 	void SpawnZombie(const float windowWidth, const Vector2f& playerPos);

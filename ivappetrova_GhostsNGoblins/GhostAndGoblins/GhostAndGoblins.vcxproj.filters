@@ -42,7 +42,7 @@
     <ClCompile Include="Platform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UImanager.cpp">
+    <ClCompile Include="HUDmanager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MoneyBag.cpp">
@@ -122,7 +122,7 @@
     <ClInclude Include="Platform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UImanager.h">
+    <ClInclude Include="HUDmanager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MoneyBag.h">

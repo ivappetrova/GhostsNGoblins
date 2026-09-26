@@ -8,7 +8,7 @@
 
 #include "Player.h"
 #include "Camera.h"
-#include "UImanager.h"
+#include "HUDmanager.h"
 #include "Timer.h"
 #include "Platform.h"
 #include "Water.h"
@@ -45,7 +45,7 @@ void Game::Initialize()
 	m_pCamera = new Camera(GetViewPort().width, GetViewPort().height);
 	m_pEnemyManager = new EnemyManager(m_pPlayer->GetPosition(), m_Vertices);
 	m_pTimer = new Timer(2, 0);
-	m_pScoreUI = new UImanager(m_pTimer);
+	m_pScoreUI = new HUDmanager(m_pTimer);
 
 	m_pMusic = new SoundStream("Sounds/Streams/backgroundMusic.mp3");
 

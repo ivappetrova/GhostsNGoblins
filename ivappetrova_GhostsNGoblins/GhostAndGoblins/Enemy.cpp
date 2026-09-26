@@ -24,7 +24,7 @@ Enemy::~Enemy() noexcept
 	m_pDeathEffect = nullptr;
 }
 
-void Enemy::Update(float elapsedSec, Player* player, UImanager* UI)
+void Enemy::Update(float elapsedSec, Player* player, HUDmanager* HUD)
 {
 	m_pDeathEffect->SetVolume(20);
 }
