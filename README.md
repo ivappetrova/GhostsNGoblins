@@ -7,6 +7,7 @@
   <img src="images_&_spritesheets/gng.gif" alt="Gameplay" width="800">
 
   <br/>
+  <br/>
 
   <a href="https://youtu.be/8V2gZA79Yl0"> <strong> Watch the full gameplay video »</strong>  </a>
 
@@ -190,4 +191,5 @@ I gained experience with object-oriented design, inheritance, composition, colli
 ## Contact
 
 Email: ivaxppetrova@gmail.com
+ <br/>
 Linkedin: [https://www.linkedin.com/in/ivappetrova/](https://www.linkedin.com/in/ivappetrova/)
